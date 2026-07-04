@@ -6,7 +6,7 @@
     "enable": 1,
     "weight": "9999",
     "httpHeaders": {
-      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
     },
 
     "searchBook": {
@@ -15,7 +15,11 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "@js:\nvar url = config.host + '/search.html?q=' + encodeURIComponent(params.keyWord) + '&f=_all';\nif (params.pageIndex && params.pageIndex > 1) url += '&p=' + params.pageIndex;\nreturn {'url': url, 'POST': false, 'httpHeaders': config.httpHeaders};",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36",
+        "Referer": "https://alicesw.com"
+      },
+      "requestInfo": "@js:\nvar url = config.host + '/search.html?q=' + encodeURIComponent(params.keyWord) + '&f=_all';\nif (params.pageIndex && params.pageIndex > 1) url += '&p=' + params.pageIndex;\nreturn {'url': url, 'POST': false, 'httpHeaders': config.httpHeaders, forbidCookie: true, cacheTime: 3600};",
       "list": "//div[contains(@class,'list-group-item')]",
       "bookName": "//h5/a",
       "author": "//p[contains(@class,'text-muted')]/a[contains(@href,'f=author')]",
@@ -38,6 +42,10 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36",
+        "Referer": "https://alicesw.com"
+      },
       "bookName": "//div[contains(@class,'novel_title')]",
       "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]",
       "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
@@ -57,7 +65,11 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "@js:\nvar m = params.queryInfo.detailUrl.match(/novel\\/(\\d+)\\.html/);\nreturn config.host + '/other/chapters/id/' + m[1] + '.html';",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36",
+        "Referer": "https://alicesw.com"
+      },
+      "requestInfo": "@js:\nvar m = params.queryInfo.detailUrl.match(/novel\\/(\\d+)\\.html/);\nreturn {'url': config.host + '/other/chapters/id/' + m[1] + '.html', 'POST': false, 'httpHeaders': config.httpHeaders, forbidCookie: true};",
       "list": "//ul[contains(@class,'mulu_list')]/li/a",
       "title": "//text()",
       "url": "//@href"
@@ -69,6 +81,11 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36",
+        "Referer": "https://alicesw.com"
+      },
+      "requestInfo": "@js:\nreturn {'url': result, 'POST': false, 'httpHeaders': config.httpHeaders, forbidCookie: true};",
       "title": "//h3[contains(@class,'j_chapterName')]",
       "content": "//div[contains(@class,'read-content')]",
       "nextPageUrl": "//a[@id='j_chapterNext']/@href",
