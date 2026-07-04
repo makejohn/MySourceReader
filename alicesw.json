@@ -14,17 +14,17 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "/search.html?q=%@keyWord&f=_all",
+      "requestInfo": "@js:\nvar url = config.host + '/search.html?q=' + encodeURIComponent(params.keyWord) + '&f=_all';\nreturn {'url': url, 'POST': false, 'httpHeaders': config.httpHeaders};",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
+      },
       "list": "//div[contains(@class,'list-group-item')]",
       "bookName": "//h5/a",
       "author": "//p[contains(@class,'text-muted')]/a[contains(@href,'f=author')]",
       "detailUrl": "//h5/a/@href",
       "cover": "",
       "desc": "//p[contains(@class,'content-txt')]",
-      "status": "//h5/small",
-      "moreKeys": {
-        "pageSize": "14"
-      }
+      "status": "//h5/small"
     },
     "bookDetail": {
       "actionID": "bookDetail",
@@ -32,7 +32,10 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "%@result",
+      "requestInfo": "@js:\nreturn {'url': result, 'POST': false, 'httpHeaders': config.httpHeaders};",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
+      },
       "bookName": "//div[contains(@class,'novel_title')]",
       "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]",
       "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
@@ -48,11 +51,13 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "@js:return config.host+'/other/chapters/id/'+String(result).match(/novel\\/(\\d+)\\.html/)[1]+'.html';",
+      "requestInfo": "@js:\nvar u = String(result);\nvar m = u.match(/novel\\/(\\d+)\\.html/);\nreturn {'url': config.host + '/other/chapters/id/' + m[1] + '.html', 'POST': false, 'httpHeaders': config.httpHeaders};",
+      "httpHeaders": {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
+      },
       "list": "//ul[contains(@class,'mulu_list')]/li/a",
       "title": "//text()",
-      "url": "//@href",
-      "detailUrl": "//@href"
+      "url": "//@href"
     },
     "chapterContent": {
       "actionID": "chapterContent",
@@ -60,7 +65,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "%@result",
       "content": "//div[contains(@class,'read-content')]"
     }
   }
