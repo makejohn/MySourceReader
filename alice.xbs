@@ -1,0 +1,93 @@
+{
+  "bookSourceName": "爱丽丝书屋",
+  "bookSourceUrl": "https://alicesw.com",
+  "bookSourceComment": "爱丽丝书屋 (ALICESW.COM) - 全属性免费成人小说创作网站\n支持搜索书名、作者、标签\n分类涵盖乱伦、都市、玄幻、校园、科幻、穿越、同人、熟女、NTR等30+标签\n如在国内无法访问，请配置代理。",
+  "bookSourceGroup": "成人小说",
+  "bookSourceType": 0,
+  "charset": "UTF-8",
+  "enable": true,
+
+  "header": "@this.headers = {\n  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',\n  'Referer': 'https://alicesw.com/'\n}",
+
+  "searchUrl": "/search.html?q={{key}}&f=_all",
+
+  "ruleSearch": {
+    "bookList": "div.list-group-item",
+    "name": "h5 a@text",
+    "author": "p.mb-1.text-muted a[href*='f=author']@text",
+    "bookUrl": "h5 a@href",
+    "wordCount": "p.mb-1.text-muted@text",
+    "lastChapter": "p.content-txt@text",
+    "status": "h5 small.text-muted@text"
+  },
+
+  "ruleBookInfo": {
+    "init": "@js:\nlet m = baseUrl.match(/novel\\/(\\d+)\\.html/);\nif(m) { this.novelId = m[1]; }",
+
+    "name": "div.novel_title@text",
+    "author": "div.novel_info p:contains('作 者') a@text",
+    "coverUrl": "div.box_intro div.pic img@src",
+    "intro": "div.jianjie p@html",
+    "kind": "div.novel_info p:contains('分 类') a@text",
+    "wordCount": "div.novel_info p:contains('字 数')@text",
+    "lastChapter": "div.novel_info p:contains('最 新') a@text",
+    "status": "div.novel_info p:contains('状 态')@text",
+    "tocUrl": "/other/chapters/id/{{novelId}}.html"
+  },
+
+  "ruleToc": {
+    "chapterList": "ul.mulu_list li",
+    "chapterName": "a@text",
+    "chapterUrl": "a@href"
+  },
+
+  "ruleContent": {
+    "content": "div.read-content.j_readContent@html",
+    "nextContentUrl": "a#j_chapterNext@href",
+    "prevContentUrl": "a#j_chapterPrev@href",
+    "chapterName": "h3.j_chapterName@text"
+  },
+
+  "exploreUrl": [
+    {
+      "title": "总排行榜",
+      "url": "/other/rank_hits/order/hits.html",
+      "style": {}
+    },
+    {
+      "title": "日排行榜",
+      "url": "/other/rank_hits/order/hits_day.html",
+      "style": {}
+    },
+    {
+      "title": "周排行榜",
+      "url": "/other/rank_hits/order/hits_week.html",
+      "style": {}
+    },
+    {
+      "title": "月排行榜",
+      "url": "/other/rank_hits/order/hits_month.html",
+      "style": {}
+    },
+    {
+      "title": "最新更新",
+      "url": "/all/order/update_time+desc.html",
+      "style": {}
+    },
+    {
+      "title": "原创专区",
+      "url": "/original.html",
+      "style": {}
+    }
+  ],
+
+  "ruleExplore": {
+    "bookList": "div.list-group-item, div.item, table tr, ul.itemg li",
+    "name": "h5 a@text, a[href*='/novel/']@text, td:nth-child(3) a@text",
+    "author": "a[href*='f=author']@text, td:nth-child(5)@text",
+    "bookUrl": "h5 a@href, a[href*='/novel/']@href, td:nth-child(3) a@href",
+    "coverUrl": "img@src",
+    "status": "small.text-muted@text",
+    "lastChapter": "td:nth-child(4) a@text"
+  }
+}
