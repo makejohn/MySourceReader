@@ -1,0 +1,353 @@
+{
+  "爱丽丝书屋": {
+    "sourceName": "爱丽丝书屋",
+    "sourceUrl": "https://alicesw.com",
+    "sourceType": "novel",
+    "enable": 1,
+    "weight": "9999",
+    "miniAppVersion": "2.56.1",
+    "lastModifyTime": "1751664000",
+    "httpHeaders": {
+      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+      "Referer": "https://alicesw.com/"
+    },
+
+    "searchBook": {
+      "actionID": "searchBook",
+      "parserID": "DOM",
+      "host": "https://alicesw.com",
+      "validConfig": "",
+      "responseFormatType": "html",
+      "responseDecryptType": "",
+      "requestInfo": "@js:\nvar kw = encodeURIComponent(params.keyWord);\nreturn config.host + '/search.html?q=' + kw + '&f=_all';",
+      "list": "//div[contains(@class,'list-group-item')]",
+      "bookName": "//h5/a//text()",
+      "author": "//p[contains(@class,'text-muted')]/a[contains(@href,'f=author')]//text()",
+      "detailUrl": "//h5/a/@href",
+      "cover": "",
+      "desc": "//p[contains(@class,'content-txt')]//text()",
+      "status": "//h5/small//text()",
+      "lastChapterTitle": "//p[contains(@class,'content-txt')]//text()",
+      "moreKeys": {
+        "pageSize": "14",
+        "maxPage": 50,
+        "removeHtmlKeys": ["bookName", "author", "desc"]
+      }
+    },
+
+    "bookDetail": {
+      "actionID": "bookDetail",
+      "parserID": "DOM",
+      "host": "https://alicesw.com",
+      "validConfig": "",
+      "responseFormatType": "html",
+      "responseDecryptType": "",
+      "requestInfo": "%@result",
+      "bookName": "//div[contains(@class,'novel_title')]//text()",
+      "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]//text()",
+      "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
+      "desc": "//div[contains(@class,'jianjie')]/p//text()",
+      "cat": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'/lists/')]//text()",
+      "status": "//div[contains(@class,'novel_info')]//p[contains(text(),'状')]//text()",
+      "wordCount": "//div[contains(@class,'novel_info')]//p[contains(text(),'字')]//text()",
+      "lastChapterTitle": "//div[contains(@class,'novel_info')]//p[contains(text(),'最')]/a//text()",
+      "moreKeys": {
+        "removeHtmlKeys": ["bookName", "author", "desc", "status", "wordCount"]
+      }
+    },
+
+    "chapterList": {
+      "actionID": "chapterList",
+      "parserID": "DOM",
+      "host": "https://alicesw.com",
+      "validConfig": "",
+      "responseFormatType": "html",
+      "responseDecryptType": "",
+      "requestInfo": "@js:\nvar u = (typeof result === 'string' && result) ? result : '';\nvar m = u.match(/novel\\/(\\d+)\\.html/);\nif (m) return config.host + '/other/chapters/id/' + m[1] + '.html';\nreturn u;",
+      "list": "//ul[contains(@class,'mulu_list')]/li/a",
+      "title": "//text()",
+      "url": "//@href",
+      "detailUrl": "//@href",
+      "moreKeys": {
+        "maxPage": 1
+      }
+    },
+
+    "chapterContent": {
+      "actionID": "chapterContent",
+      "parserID": "DOM",
+      "host": "https://alicesw.com",
+      "validConfig": "",
+      "responseFormatType": "html",
+      "responseDecryptType": "",
+      "requestInfo": "@js:\nvar host = config.host;\nvar u = '';\nif (params && params.lastResponse && params.lastResponse.nextPageUrl) {\n  u = params.lastResponse.nextPageUrl;\n} else {\n  u = (typeof result === 'string' && result) ? result : (params.queryInfo ? params.queryInfo.url : '');\n}\nif (!/^https?:\\/\\//i.test(u)) u = host.replace(/\\/+$/, '') + '/' + u.replace(/^\\/+/, '');\nreturn {'url': u, 'httpHeaders': config.httpHeaders};",
+      "title": "//h3[contains(@class,'j_chapterName')]//text()",
+      "content": "//div[contains(@class,'read-content')]",
+      "nextPageUrl": "//a[@id='j_chapterNext']/@href",
+      "moreKeys": {
+        "maxPage": 1
+      }
+    },
+
+    "bookWorld": {
+      "actionID": "bookWorld",
+      "parserID": "DOM",
+      "host": "https://alicesw.com",
+      "validConfig": "",
+      "responseFormatType": "html",
+      "responseDecryptType": "",
+      "乱伦": {
+        "requestInfo": "/lists/65.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "都市": {
+        "requestInfo": "/lists/64.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "乡村": {
+        "requestInfo": "/lists/63.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "玄幻": {
+        "requestInfo": "/lists/62.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "校园": {
+        "requestInfo": "/lists/61.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "穿越": {
+        "requestInfo": "/lists/70.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "系统": {
+        "requestInfo": "/lists/69.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "武侠": {
+        "requestInfo": "/lists/68.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "科幻": {
+        "requestInfo": "/lists/71.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "奇幻": {
+        "requestInfo": "/lists/75.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "同人": {
+        "requestInfo": "/lists/73.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "明星": {
+        "requestInfo": "/lists/72.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "NTR": {
+        "requestInfo": "/lists/54.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "熟女": {
+        "requestInfo": "/lists/56.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "调教": {
+        "requestInfo": "/lists/58.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "百合": {
+        "requestInfo": "/lists/47.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "纯爱": {
+        "requestInfo": "/lists/19.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "凌辱": {
+        "requestInfo": "/lists/46.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "伪娘": {
+        "requestInfo": "/lists/52.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "萝莉": {
+        "requestInfo": "/lists/48.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "正太": {
+        "requestInfo": "/lists/50.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "媚黑": {
+        "requestInfo": "/lists/53.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "反差": {
+        "requestInfo": "/lists/22.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "堕落": {
+        "requestInfo": "/lists/18.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "耽美": {
+        "requestInfo": "/lists/82.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "言情": {
+        "requestInfo": "/lists/59.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "重口": {
+        "requestInfo": "/lists/21.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      },
+      "其他": {
+        "requestInfo": "/lists/57.html?page=%@pageIndex",
+        "list": "//table//tr[td]",
+        "bookName": "//td[3]/a//text()",
+        "author": "//td[5]//text()",
+        "detailUrl": "//td[3]/a/@href",
+        "lastChapterTitle": "//td[4]/a//text()",
+        "wordCount": "//td[6]//text()"
+      }
+    }
+  }
+}
