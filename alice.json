@@ -6,18 +6,20 @@
     "enable": 1,
     "weight": "9999",
     "miniAppVersion": "2.56.1",
-    "lastModifyTime": "1751664000",
+    "lastModifyTime": "1783181426",
     "httpHeaders": {
       "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
       "Referer": "https://alicesw.com/"
     },
+    "authorId": "",
+    "desc": "爱丽丝书屋 (ALICESW.COM)",
+    "toTop": "1783181426",
     "searchBook": {
       "actionID": "searchBook",
       "parserID": "DOM",
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "responseDecryptType": "",
       "requestInfo": "@js:\nvar kw = encodeURIComponent(params.keyWord);\nreturn config.host + '/search.html?q=' + kw + '&f=_all';",
       "list": "//div[contains(@class,'list-group-item')]",
       "bookName": "//h5/a//text()",
@@ -43,8 +45,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "responseDecryptType": "",
-      "requestInfo": "%@result",
       "bookName": "//div[contains(@class,'novel_title')]//text()",
       "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]//text()",
       "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
@@ -52,16 +52,7 @@
       "cat": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'/lists/')]//text()",
       "status": "//div[contains(@class,'novel_info')]//p[contains(text(),'状')]//text()",
       "wordCount": "//div[contains(@class,'novel_info')]//p[contains(text(),'字')]//text()",
-      "lastChapterTitle": "//div[contains(@class,'novel_info')]//p[contains(text(),'最')]/a//text()",
-      "moreKeys": {
-        "removeHtmlKeys": [
-          "bookName",
-          "author",
-          "desc",
-          "status",
-          "wordCount"
-        ]
-      }
+      "lastChapterTitle": "//div[contains(@class,'novel_info')]//p[contains(text(),'最')]/a//text()"
     },
     "chapterList": {
       "actionID": "chapterList",
@@ -69,7 +60,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "responseDecryptType": "",
       "requestInfo": "@js:\nvar u = (typeof result === 'string' && result) ? result : '';\nvar m = u.match(/novel\\/(\\d+)\\.html/);\nif (m) return config.host + '/other/chapters/id/' + m[1] + '.html';\nreturn u;",
       "list": "//ul[contains(@class,'mulu_list')]/li/a",
       "title": "//text()",
@@ -85,7 +75,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "responseDecryptType": "",
       "requestInfo": "@js:\nvar host = config.host;\nvar u = '';\nif (params && params.lastResponse && params.lastResponse.nextPageUrl) {\n  u = params.lastResponse.nextPageUrl;\n} else {\n  u = (typeof result === 'string' && result) ? result : (params.queryInfo ? params.queryInfo.url : '');\n}\nif (!/^https?:\\/\\//i.test(u)) u = host.replace(/\\/+$/, '') + '/' + u.replace(/^\\/+/, '');\nreturn {'url': u, 'httpHeaders': config.httpHeaders};",
       "title": "//h3[contains(@class,'j_chapterName')]//text()",
       "content": "//div[contains(@class,'read-content')]",
@@ -100,8 +89,17 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "responseDecryptType": "",
       "乱伦": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 0,
         "requestInfo": "/lists/65.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -111,6 +109,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "都市": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 1,
         "requestInfo": "/lists/64.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -120,6 +128,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "乡村": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 2,
         "requestInfo": "/lists/63.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -129,6 +147,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "玄幻": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 3,
         "requestInfo": "/lists/62.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -138,6 +166,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "校园": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 4,
         "requestInfo": "/lists/61.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -147,6 +185,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "穿越": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 5,
         "requestInfo": "/lists/70.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -156,6 +204,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "系统": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 6,
         "requestInfo": "/lists/69.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -165,6 +223,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "武侠": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 7,
         "requestInfo": "/lists/68.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -174,6 +242,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "科幻": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 8,
         "requestInfo": "/lists/71.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -183,6 +261,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "奇幻": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 9,
         "requestInfo": "/lists/75.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -192,6 +280,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "同人": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 10,
         "requestInfo": "/lists/73.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -201,6 +299,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "明星": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 11,
         "requestInfo": "/lists/72.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -209,35 +317,18 @@
         "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
-      "NTR": {
-        "requestInfo": "/lists/54.html?page=%@pageIndex",
-        "list": "//div[contains(@class,\"rec_rullist\")]",
-        "bookName": "//li[contains(@class,\"two\")]/a//text()",
-        "author": "//li[contains(@class,\"four\")]//text()",
-        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
-        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
-        "wordCount": "//li[contains(@class,\"five\")]//text()"
-      },
-      "熟女": {
-        "requestInfo": "/lists/56.html?page=%@pageIndex",
-        "list": "//div[contains(@class,\"rec_rullist\")]",
-        "bookName": "//li[contains(@class,\"two\")]/a//text()",
-        "author": "//li[contains(@class,\"four\")]//text()",
-        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
-        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
-        "wordCount": "//li[contains(@class,\"five\")]//text()"
-      },
-      "调教": {
-        "requestInfo": "/lists/58.html?page=%@pageIndex",
-        "list": "//div[contains(@class,\"rec_rullist\")]",
-        "bookName": "//li[contains(@class,\"two\")]/a//text()",
-        "author": "//li[contains(@class,\"four\")]//text()",
-        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
-        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
-        "wordCount": "//li[contains(@class,\"five\")]//text()"
-      },
-      "百合": {
-        "requestInfo": "/lists/47.html?page=%@pageIndex",
+      "经典": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 12,
+        "requestInfo": "/lists/79.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
         "author": "//li[contains(@class,\"four\")]//text()",
@@ -246,6 +337,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "纯爱": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 13,
         "requestInfo": "/lists/19.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -254,8 +355,75 @@
         "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
-      "凌辱": {
-        "requestInfo": "/lists/46.html?page=%@pageIndex",
+      "百合": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 14,
+        "requestInfo": "/lists/47.html?page=%@pageIndex",
+        "list": "//div[contains(@class,\"rec_rullist\")]",
+        "bookName": "//li[contains(@class,\"two\")]/a//text()",
+        "author": "//li[contains(@class,\"four\")]//text()",
+        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
+        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
+        "wordCount": "//li[contains(@class,\"five\")]//text()"
+      },
+      "耽美": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 15,
+        "requestInfo": "/lists/82.html?page=%@pageIndex",
+        "list": "//div[contains(@class,\"rec_rullist\")]",
+        "bookName": "//li[contains(@class,\"two\")]/a//text()",
+        "author": "//li[contains(@class,\"four\")]//text()",
+        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
+        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
+        "wordCount": "//li[contains(@class,\"five\")]//text()"
+      },
+      "NTR": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 16,
+        "requestInfo": "/lists/54.html?page=%@pageIndex",
+        "list": "//div[contains(@class,\"rec_rullist\")]",
+        "bookName": "//li[contains(@class,\"two\")]/a//text()",
+        "author": "//li[contains(@class,\"four\")]//text()",
+        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
+        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
+        "wordCount": "//li[contains(@class,\"five\")]//text()"
+      },
+      "媚黑": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 17,
+        "requestInfo": "/lists/53.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
         "author": "//li[contains(@class,\"four\")]//text()",
@@ -264,6 +432,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "伪娘": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 18,
         "requestInfo": "/lists/52.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -273,6 +451,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "萝莉": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 19,
         "requestInfo": "/lists/48.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -281,7 +469,36 @@
         "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
+      "熟女": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 20,
+        "requestInfo": "/lists/56.html?page=%@pageIndex",
+        "list": "//div[contains(@class,\"rec_rullist\")]",
+        "bookName": "//li[contains(@class,\"two\")]/a//text()",
+        "author": "//li[contains(@class,\"four\")]//text()",
+        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
+        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
+        "wordCount": "//li[contains(@class,\"five\")]//text()"
+      },
       "正太": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 21,
         "requestInfo": "/lists/50.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -290,16 +507,17 @@
         "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
-      "媚黑": {
-        "requestInfo": "/lists/53.html?page=%@pageIndex",
-        "list": "//div[contains(@class,\"rec_rullist\")]",
-        "bookName": "//li[contains(@class,\"two\")]/a//text()",
-        "author": "//li[contains(@class,\"four\")]//text()",
-        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
-        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
-        "wordCount": "//li[contains(@class,\"five\")]//text()"
-      },
       "反差": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 22,
         "requestInfo": "/lists/22.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -308,7 +526,36 @@
         "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
+      "凌辱": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 23,
+        "requestInfo": "/lists/46.html?page=%@pageIndex",
+        "list": "//div[contains(@class,\"rec_rullist\")]",
+        "bookName": "//li[contains(@class,\"two\")]/a//text()",
+        "author": "//li[contains(@class,\"four\")]//text()",
+        "detailUrl": "//li[contains(@class,\"two\")]/a/@href",
+        "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
+        "wordCount": "//li[contains(@class,\"five\")]//text()"
+      },
       "堕落": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 24,
         "requestInfo": "/lists/18.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -317,8 +564,18 @@
         "lastChapterTitle": "//li[contains(@class,\"three\")]/a//text()",
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
-      "耽美": {
-        "requestInfo": "/lists/82.html?page=%@pageIndex",
+      "调教": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 25,
+        "requestInfo": "/lists/58.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
         "author": "//li[contains(@class,\"four\")]//text()",
@@ -327,6 +584,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "言情": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 26,
         "requestInfo": "/lists/59.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -336,6 +603,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "重口": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 27,
         "requestInfo": "/lists/21.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -345,6 +622,16 @@
         "wordCount": "//li[contains(@class,\"five\")]//text()"
       },
       "其他": {
+        "actionID": "bookWorld",
+        "parserID": "DOM",
+        "host": "https://alicesw.com",
+        "httpHeaders": {
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+          "Referer": "https://alicesw.com/"
+        },
+        "responseFormatType": "html",
+        "validConfig": "",
+        "_sIndex": 28,
         "requestInfo": "/lists/57.html?page=%@pageIndex",
         "list": "//div[contains(@class,\"rec_rullist\")]",
         "bookName": "//li[contains(@class,\"two\")]/a//text()",
@@ -374,8 +661,6 @@
       "actionID": "shupingList",
       "parserID": "DOM"
     },
-    "shudanList": {},
-    "desc": "爱丽丝书屋 (ALICESW.COM) - 全属性免费成人小说创作网站",
-    "toTop": "1783180879"
+    "shudanList": {}
   }
 }
