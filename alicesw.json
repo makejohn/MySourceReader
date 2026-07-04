@@ -16,9 +16,6 @@
       "validConfig": "",
       "responseFormatType": "html",
       "requestInfo": "@js:\nvar url = config.host + '/search.html?q=' + encodeURIComponent(params.keyWord) + '&f=_all';\nif (params.pageIndex && params.pageIndex > 1) url += '&p=' + params.pageIndex;\nreturn {'url': url, 'POST': false, 'httpHeaders': config.httpHeaders};",
-      "httpHeaders": {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
-      },
       "list": "//div[contains(@class,'list-group-item')]",
       "bookName": "//h5/a",
       "author": "//p[contains(@class,'text-muted')]/a[contains(@href,'f=author')]",
@@ -41,10 +38,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "@js:\nreturn {'url': result, 'POST': false, 'httpHeaders': config.httpHeaders};",
-      "httpHeaders": {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
-      },
       "bookName": "//div[contains(@class,'novel_title')]",
       "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]",
       "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
@@ -64,17 +57,10 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "@js:\nvar u = String(result);\nvar m = u.match(/novel\\/(\\d+)\\.html/);\nreturn {'url': config.host + '/other/chapters/id/' + m[1] + '.html', 'POST': false, 'httpHeaders': config.httpHeaders};",
-      "httpHeaders": {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
-      },
+      "requestInfo": "@js:\nvar m = params.queryInfo.detailUrl.match(/novel\\/(\\d+)\\.html/);\nreturn config.host + '/other/chapters/id/' + m[1] + '.html';",
       "list": "//ul[contains(@class,'mulu_list')]/li/a",
       "title": "//text()",
-      "url": "//@href",
-      "detailUrl": "//@href",
-      "moreKeys": {
-        "maxPage": 1
-      }
+      "url": "//@href"
     },
 
     "chapterContent": {
@@ -83,10 +69,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "requestInfo": "@js:\nif (params && params.lastResponse && params.lastResponse.nextPageUrl) {\n  return {'url': params.lastResponse.nextPageUrl, 'POST': false, 'httpHeaders': config.httpHeaders};\n}\nreturn {'url': result, 'POST': false, 'httpHeaders': config.httpHeaders};",
-      "httpHeaders": {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
-      },
       "title": "//h3[contains(@class,'j_chapterName')]",
       "content": "//div[contains(@class,'read-content')]",
       "nextPageUrl": "//a[@id='j_chapterNext']/@href",
@@ -101,9 +83,6 @@
       "host": "https://alicesw.com",
       "validConfig": "",
       "responseFormatType": "html",
-      "httpHeaders": {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
-      },
       "乱伦": {
         "requestInfo": "/lists/65.html?page=%@pageIndex",
         "list": "//table//tr[td]",
