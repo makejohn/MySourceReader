@@ -1,0 +1,117 @@
+{
+  "名称": "爱丽丝书屋📚",
+  "host": "https://alicesw.com",
+  "httpHeaders": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Referer": "https://alicesw.com/"
+  },
+
+  "书籍搜索": {
+    "请求信息": "@js: let kw=encodeURIComponent(params.keyWord); let url=config.host+'/search.html?q='+kw+'&f=_all'; return {'url':url,'POST':false,'httpHeaders':config.httpHeaders,'forbidCookie':true};",
+    "请求信息（编码）": "utf-8",
+    "响应编码方式": "utf-8",
+    "响应解析方式": "格式化为DOM（html）",
+    "响应规则": {
+      "list": "//div[contains(@class,'list-group-item')]",
+      "bookName": "//h5/a/text()",
+      "author": "//p[contains(@class,'text-muted')]/a[contains(@href,'f=author')]/text()",
+      "detailUrl": "//h5/a/@href",
+      "status": "//h5/small[contains(@class,'text-muted')]/text()",
+      "lastChapterTitle": "//p[contains(@class,'content-txt')]/text()",
+      "wordCount": "//p[contains(@class,'text-muted')]/text()"
+    },
+    "moreKeys": {
+      "pageSize": 14,
+      "maxPage": 50
+    }
+  },
+
+  "书籍详情": {
+    "请求信息": "%@result",
+    "请求信息（编码）": "utf-8",
+    "响应编码方式": "utf-8",
+    "响应解析方式": "格式化为DOM（html）",
+    "bookName": "//div[contains(@class,'novel_title')]/text()",
+    "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]/text()",
+    "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
+    "desc": "//div[contains(@class,'jianjie')]/p/text()",
+    "cat": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'/lists/')]/text()",
+    "status": "//div[contains(@class,'novel_info')]//p[contains(text(),'状')]/text()",
+    "wordCount": "//div[contains(@class,'novel_info')]//p[contains(text(),'字')]/text()",
+    "lastChapterTitle": "//div[contains(@class,'novel_info')]//p[contains(text(),'最')]/a/text()",
+    "章节列表网址": "@js: let u=config.lastUrl; let m=u.match(/novel\\/(\\d+)\\.html/); if(m){return config.host+'/other/chapters/id/'+m[1]+'.html';} return '';"
+  },
+
+  "章节列表": {
+    "请求信息": "%@result",
+    "请求信息（编码）": "utf-8",
+    "响应编码方式": "utf-8",
+    "响应解析方式": "格式化为DOM（html）",
+    "列表": "//ul[contains(@class,'mulu_list')]/li",
+    "标题": "//a/text()",
+    "下一级界面地址": "//a/@href"
+  },
+
+  "章节内容": {
+    "请求信息": "%@result",
+    "请求信息（编码）": "utf-8",
+    "响应编码方式": "utf-8",
+    "响应解析方式": "格式化为DOM（html）",
+    "标题": "//h3[contains(@class,'j_chapterName')]/text()",
+    "content": "//div[contains(@class,'read-content')]",
+    "下一页地址": "//a[@id='j_chapterNext']/@href"
+  },
+
+  "书籍分类": {
+    "请求信息": "@js: let url=config.host+'/lists/'+params.filters.type+'.html'; return {'url':url,'POST':false,'httpHeaders':config.httpHeaders};",
+    "请求信息（编码）": "utf-8",
+    "响应编码方式": "utf-8",
+    "响应解析方式": "格式化为DOM（html）",
+    "响应规则": {
+      "list": "//table//tr[td]",
+      "bookName": "//td[3]/a/text()",
+      "author": "//td[5]/text()",
+      "detailUrl": "//td[3]/a/@href",
+      "lastChapterTitle": "//td[4]/a/text()",
+      "wordCount": "//td[6]/text()"
+    },
+    "moreKeys": {
+      "requestFilters": [
+        {
+          "key": "type",
+          "items": [
+            { "title": "乱伦", "value": "65" },
+            { "title": "都市", "value": "64" },
+            { "title": "乡村", "value": "63" },
+            { "title": "玄幻", "value": "62" },
+            { "title": "校园", "value": "61" },
+            { "title": "穿越", "value": "70" },
+            { "title": "系统", "value": "69" },
+            { "title": "武侠", "value": "68" },
+            { "title": "科幻", "value": "71" },
+            { "title": "奇幻", "value": "75" },
+            { "title": "同人", "value": "73" },
+            { "title": "明星", "value": "72" },
+            { "title": "经典", "value": "79" },
+            { "title": "纯爱", "value": "19" },
+            { "title": "百合", "value": "47" },
+            { "title": "耽美", "value": "82" },
+            { "title": "NTR", "value": "54" },
+            { "title": "媚黑", "value": "53" },
+            { "title": "伪娘", "value": "52" },
+            { "title": "萝莉", "value": "48" },
+            { "title": "熟女", "value": "56" },
+            { "title": "正太", "value": "50" },
+            { "title": "反差", "value": "22" },
+            { "title": "凌辱", "value": "46" },
+            { "title": "堕落", "value": "18" },
+            { "title": "调教", "value": "58" },
+            { "title": "言情", "value": "59" },
+            { "title": "重口", "value": "21" },
+            { "title": "其他", "value": "57" }
+          ]
+        }
+      ]
+    }
+  }
+}
