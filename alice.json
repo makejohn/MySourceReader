@@ -1,9 +1,9 @@
 {
   "名称": "爱丽丝书屋📚",
-  "host": "https://alicesw.com",
+  "host": "https://www.alicesw.com",
   "httpHeaders": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Referer": "https://alicesw.com/"
+    "Referer": "https://www.alicesw.com/"
   },
 
   "书籍搜索": {
@@ -14,11 +14,11 @@
     "响应规则": {
       "list": "//div[contains(@class,'list-group-item')]",
       "bookName": "//h5/a/text()",
-      "author": "//p[contains(@class,'text-muted')]/a[contains(@href,'f=author')]/text()",
+      "author": "//p[contains(@class,'mb-1') and contains(@class,'text-muted')]/a[contains(@href,'f=author')]/text()",
       "detailUrl": "//h5/a/@href",
       "status": "//h5/small[contains(@class,'text-muted')]/text()",
       "lastChapterTitle": "//p[contains(@class,'content-txt')]/text()",
-      "wordCount": "//p[contains(@class,'text-muted')]/text()"
+      "wordCount": "//p[contains(@class,'mb-1') and contains(@class,'text-muted')]/text()"
     },
     "moreKeys": {
       "pageSize": 14,
@@ -32,10 +32,10 @@
     "响应编码方式": "utf-8",
     "响应解析方式": "格式化为DOM（html）",
     "bookName": "//div[contains(@class,'novel_title')]/text()",
-    "author": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'f=author')]/text()",
+    "author": "//div[contains(@class,'novel_info')]//a[contains(@href,'f=author')]/text()",
     "cover": "//div[contains(@class,'box_intro')]//div[contains(@class,'pic')]//img/@src",
     "desc": "//div[contains(@class,'jianjie')]/p/text()",
-    "cat": "//div[contains(@class,'novel_info')]//p/a[contains(@href,'/lists/')]/text()",
+    "cat": "//div[contains(@class,'novel_info')]//a[contains(@href,'/lists/')]/text()",
     "status": "//div[contains(@class,'novel_info')]//p[contains(text(),'状')]/text()",
     "wordCount": "//div[contains(@class,'novel_info')]//p[contains(text(),'字')]/text()",
     "lastChapterTitle": "//div[contains(@class,'novel_info')]//p[contains(text(),'最')]/a/text()",
@@ -63,19 +63,20 @@
   },
 
   "书籍分类": {
-    "请求信息": "@js: let url=config.host+'/lists/'+params.filters.type+'.html'; return {'url':url,'POST':false,'httpHeaders':config.httpHeaders};",
+    "请求信息": "@js: let url=config.host+'/lists/'+params.filters.type+'.html?page='+params.pageIndex; return {'url':url,'POST':false,'httpHeaders':config.httpHeaders};",
     "请求信息（编码）": "utf-8",
     "响应编码方式": "utf-8",
     "响应解析方式": "格式化为DOM（html）",
     "响应规则": {
-      "list": "//table//tr[td]",
-      "bookName": "//td[3]/a/text()",
-      "author": "//td[5]/text()",
-      "detailUrl": "//td[3]/a/@href",
-      "lastChapterTitle": "//td[4]/a/text()",
-      "wordCount": "//td[6]/text()"
+      "list": "//div[contains(@class,'rec_rullist')]",
+      "bookName": "//li[contains(@class,'two')]/a/text()",
+      "author": "//li[contains(@class,'four')]/text()",
+      "detailUrl": "//li[contains(@class,'two')]/a/@href",
+      "lastChapterTitle": "//li[contains(@class,'three')]/a/text()",
+      "wordCount": "//li[contains(@class,'five')]/text()"
     },
     "moreKeys": {
+      "pageSize": 20,
       "requestFilters": [
         {
           "key": "type",

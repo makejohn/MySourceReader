@@ -1,13 +1,13 @@
 {
-  "bookSourceName": "爱丽丝书屋",
-  "bookSourceUrl": "https://alicesw.com",
-  "bookSourceComment": "爱丽丝书屋 (ALICESW.COM) - 全属性免费成人小说创作网站\n支持搜索书名、作者、标签\n分类涵盖乱伦、都市、玄幻、校园、科幻、穿越、同人、熟女、NTR等30+标签\n如在国内无法访问，请配置代理。",
+  "bookSourceName": "爱丽丝书屋📚",
+  "bookSourceUrl": "https://www.alicesw.com",
+  "bookSourceComment": "爱丽丝书屋 (ALICESW.COM) - 全属性免费成人小说创作网站\n支持搜索书名、作者、标签\n分类涵盖乱伦、都市、玄幻、校园、科幻、穿越、同人、熟女、NTR等30+标签\n如在国内无法访问，请配置代理。\n更新日期: 2026-07-04\n基于最新网站HTML结构验证",
   "bookSourceGroup": "成人小说",
   "bookSourceType": 0,
   "charset": "UTF-8",
   "enable": true,
 
-  "header": "@this.headers = {\n  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',\n  'Referer': 'https://alicesw.com/'\n}",
+  "header": "@this.headers = {\n  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',\n  'Referer': 'https://www.alicesw.com/'\n}",
 
   "searchUrl": "/search.html?q={{key}}&f=_all",
 
@@ -25,13 +25,13 @@
     "init": "@js:\nlet m = baseUrl.match(/novel\\/(\\d+)\\.html/);\nif(m) { this.novelId = m[1]; }",
 
     "name": "div.novel_title@text",
-    "author": "div.novel_info p:contains('作 者') a@text",
+    "author": "div.novel_info p a[href*='f=author']@text",
     "coverUrl": "div.box_intro div.pic img@src",
     "intro": "div.jianjie p@html",
-    "kind": "div.novel_info p:contains('分 类') a@text",
-    "wordCount": "div.novel_info p:contains('字 数')@text",
-    "lastChapter": "div.novel_info p:contains('最 新') a@text",
-    "status": "div.novel_info p:contains('状 态')@text",
+    "kind": "div.novel_info p a[href*='/lists/']@text",
+    "wordCount": "div.novel_info p@text",
+    "lastChapter": "div.novel_info p a[href*='/book/']@text",
+    "status": "div.novel_info p@text",
     "tocUrl": "/other/chapters/id/{{novelId}}.html"
   },
 
@@ -78,16 +78,157 @@
       "title": "原创专区",
       "url": "/original.html",
       "style": {}
+    },
+    {
+      "title": "乱伦",
+      "url": "/lists/65.html",
+      "style": {}
+    },
+    {
+      "title": "都市",
+      "url": "/lists/64.html",
+      "style": {}
+    },
+    {
+      "title": "玄幻",
+      "url": "/lists/62.html",
+      "style": {}
+    },
+    {
+      "title": "校园",
+      "url": "/lists/61.html",
+      "style": {}
+    },
+    {
+      "title": "穿越",
+      "url": "/lists/70.html",
+      "style": {}
+    },
+    {
+      "title": "系统",
+      "url": "/lists/69.html",
+      "style": {}
+    },
+    {
+      "title": "武侠",
+      "url": "/lists/68.html",
+      "style": {}
+    },
+    {
+      "title": "科幻",
+      "url": "/lists/71.html",
+      "style": {}
+    },
+    {
+      "title": "奇幻",
+      "url": "/lists/75.html",
+      "style": {}
+    },
+    {
+      "title": "同人",
+      "url": "/lists/73.html",
+      "style": {}
+    },
+    {
+      "title": "明星",
+      "url": "/lists/72.html",
+      "style": {}
+    },
+    {
+      "title": "经典",
+      "url": "/lists/79.html",
+      "style": {}
+    },
+    {
+      "title": "纯爱",
+      "url": "/lists/19.html",
+      "style": {}
+    },
+    {
+      "title": "百合",
+      "url": "/lists/47.html",
+      "style": {}
+    },
+    {
+      "title": "耽美",
+      "url": "/lists/82.html",
+      "style": {}
+    },
+    {
+      "title": "NTR",
+      "url": "/lists/54.html",
+      "style": {}
+    },
+    {
+      "title": "媚黑",
+      "url": "/lists/53.html",
+      "style": {}
+    },
+    {
+      "title": "伪娘",
+      "url": "/lists/52.html",
+      "style": {}
+    },
+    {
+      "title": "萝莉",
+      "url": "/lists/48.html",
+      "style": {}
+    },
+    {
+      "title": "熟女",
+      "url": "/lists/56.html",
+      "style": {}
+    },
+    {
+      "title": "正太",
+      "url": "/lists/50.html",
+      "style": {}
+    },
+    {
+      "title": "反差",
+      "url": "/lists/22.html",
+      "style": {}
+    },
+    {
+      "title": "凌辱",
+      "url": "/lists/46.html",
+      "style": {}
+    },
+    {
+      "title": "堕落",
+      "url": "/lists/18.html",
+      "style": {}
+    },
+    {
+      "title": "调教",
+      "url": "/lists/58.html",
+      "style": {}
+    },
+    {
+      "title": "言情",
+      "url": "/lists/59.html",
+      "style": {}
+    },
+    {
+      "title": "重口",
+      "url": "/lists/21.html",
+      "style": {}
+    },
+    {
+      "title": "其他",
+      "url": "/lists/57.html",
+      "style": {}
     }
   ],
 
   "ruleExplore": {
-    "bookList": "div.list-group-item, div.item, table tr, ul.itemg li",
-    "name": "h5 a@text, a[href*='/novel/']@text, td:nth-child(3) a@text",
-    "author": "a[href*='f=author']@text, td:nth-child(5)@text",
-    "bookUrl": "h5 a@href, a[href*='/novel/']@href, td:nth-child(3) a@href",
+    "bookList": "div.rec_rullist, div.list-group-item",
+    "name": "li.two a@text, h5 a@text",
+    "author": "li.four@text, p.text-muted a[href*='f=author']@text",
+    "bookUrl": "li.two a@href, h5 a@href",
     "coverUrl": "img@src",
-    "status": "small.text-muted@text",
-    "lastChapter": "td:nth-child(4) a@text"
+    "status": "h5 small.text-muted@text",
+    "lastChapter": "li.three a@text, p.content-txt@text",
+    "wordCount": "li.five@text, p.text-muted@text"
   }
 }
